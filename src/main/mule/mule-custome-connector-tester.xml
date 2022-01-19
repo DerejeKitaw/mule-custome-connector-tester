@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:basic="http://www.mulesoft.org/schema/mule/basic"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/basic http://www.mulesoft.org/schema/mule/basic/current/mule-basic.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="7654325b-496c-4261-95ac-8243767ff6cc" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="mule-custome-connector-testerFlow" doc:id="09d0c20f-a9e6-4020-87fd-d9bc148d50c3" >
+		<http:listener doc:name="Listener" doc:id="d73be426-75c8-4d3b-b6bc-8db319896e3b" config-ref="HTTP_Listener_config" path="/hi"/>
+		<basic:say-hi doc:name="Say hi" doc:id="b2c8affc-2348-4667-bfca-94bb9c67a68c" person="me"/>
+	</flow>
+</mule>
